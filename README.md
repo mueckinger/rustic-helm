@@ -55,13 +55,13 @@ This will trigger a daily backup of the nodes </path/to/backupfolder> to the giv
 ### Deploying rustic
 
 ```
-helm install rustic rustic/rustic --version 0.2.0-alpha --set rustic.init=true -f values.yml
+helm install rustic rustic/rustic --version 0.3.0-alpha --set rustic.init=true -f values.yml
 ```
 
 If there is already an initialized restic repository in the Bucket omit `--set rustic.init=true`:
 
 ```
-helm install rustic rustic/rustic --version 0.2.0-alpha -f values.yml
+helm install rustic rustic/rustic --version 0.3.0-alpha -f values.yml
 ```
 
 ### Examples
