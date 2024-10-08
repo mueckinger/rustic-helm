@@ -5,7 +5,13 @@
 
 ## About
 
-[rustic](https://rustic.cli.rs/) is a backup tool that provides fast, encrypted and deduplicated backups. This chart installs `rustic backup` as [Kubernetes CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/), which will run a [Kubernetes Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/) periodically on a given schedule. It can optionally initialize a new repository by creating a single Job running `rustic init`.
+[rustic](https://rustic.cli.rs/) is a backup tool that provides fast, encrypted
+and deduplicated backups. This chart installs `rustic backup` as
+[Kubernetes CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/),
+which will run a
+[Kubernetes Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+periodically on a given schedule. It can optionally initialize a new repository
+by creating a single Job running `rustic init`.
 
 ## Contact
 
@@ -19,16 +25,15 @@ the [FAQ](https://rustic.cli.rs/docs/FAQ.html).
 | Discord       | [![Discord](https://dcbadge.vercel.app/api/server/WRUWENZnzQ?style=flat-square)](https://discord.gg/WRUWENZnzQ) |
 | Discussions   | [GitHub Discussions](https://github.com/rustic-rs/rustic/discussions)                                           |
 
-
-
 ## Installing
 
 ### Prerequisites
 
-* Kubernetes >=1.24
-* Helm v3 (Tested with v3.11.2)
-* Rustic's chart repository: `helm repo add rustic https://rustic-rs.github.io/rustic-helm/charts`
-* A valid `values.yml` file, the following example represents the bare minimum:
+- Kubernetes >=1.24
+- Helm v3 (Tested with v3.11.2)
+- Rustic's chart repository:
+  `helm repo add rustic https://rustic-rs.github.io/rustic-helm/charts`
+- A valid `values.yml` file, the following example represents the bare minimum:
 
 ```yaml
 # Kubernetes assigns random hostnames for Pods by default. Please set the Pods hostname to a fixed value, otherwise incremental backups won't work.
@@ -50,7 +55,8 @@ s3:
     bucket: <bucketName>
 ```
 
-This will trigger a daily backup of the nodes </path/to/backupfolder> to the given S3 bucket at 1:00 am (default schedule). 
+This will trigger a daily backup of the nodes </path/to/backupfolder> to the
+given S3 bucket at 1:00 am (default schedule).
 
 ### Deploying rustic
 
@@ -58,7 +64,8 @@ This will trigger a daily backup of the nodes </path/to/backupfolder> to the giv
 helm install rustic rustic/rustic --version 0.3.0-alpha --set rustic.init=true -f values.yml
 ```
 
-If there is already an initialized restic repository in the Bucket omit `--set rustic.init=true`:
+If there is already an initialized restic repository in the Bucket omit
+`--set rustic.init=true`:
 
 ```
 helm install rustic rustic/rustic --version 0.3.0-alpha -f values.yml
@@ -107,8 +114,8 @@ s3:
 
 - [ ] Auto create persistentVolume for local cache
 - [ ] Add forget/prune CronJobs
-- [ ] Follow [helm charts best practises](https://helm.sh/docs/chart_best_practices/)
-
+- [ ] Follow
+      [helm charts best practises](https://helm.sh/docs/chart_best_practices/)
 
 ## Contributing
 
@@ -123,7 +130,6 @@ Got an idea for an improvement? Don't keep it to yourself!
 
 Please make sure, that you read the
 [contribution guide](https://rustic.cli.rs/docs/contributing-to-rustic.html).
-
 
 ## License
 
